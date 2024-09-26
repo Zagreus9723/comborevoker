@@ -44,7 +44,7 @@ class strip:
                         r = requests.get('http://'+flow.request.host, headers=headers, cookies=cookies, data=data)
                         print(r)
                         known.append([flow.request.host, r.text])
-                        headers["intercept"] = flow.request.host
+                        flow.request.headers["intercept"] = flow.request.host
 
         except Exception as E:
             print(f'Killed flow {flow.request.host} for: {E}')

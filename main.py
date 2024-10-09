@@ -40,7 +40,7 @@ class strip:
                         headers = flow.request.headers
                         data = flow.request.text
                         data.replace(match.group(0), f"iufhiuh{match.group(0)}")
-                        r = requests.get('http://'+flow.request.host, headers=headers, cookies=cookies, data=data)
+                        r = requests.post('http://'+flow.request.host, headers=headers, cookies=cookies, data=data)
                         print(r.text)
                         known.append([flow.request.host, r.text])
                         flow.request.headers["intercept"] = flow.request.host
